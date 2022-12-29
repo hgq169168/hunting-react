@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+.btn {
+  border-radius: 50rem;
+  border-color: red;
+  background-color: transparent;
+  padding: 1rem 2rem;
+  margin: 0 1rem;
+}
+.subTitle {
+  color: red;
+}
+.avatar{
+  border-radius: 50%;
+}
