@@ -3,28 +3,59 @@ import './App.css';
 
 
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {Profile} from './Profile'
 import { Cart } from './Cart'
+import { List } from './TodoList'
 // import {TodoList} from './TodoListt'
 function App() {
-  const [count, setHasLearned] = useState(1)
-  const handleChange = () => setHasLearned(count + 1)
-  let JSXMarkup = null
-  if (count <= 10) {
-    JSXMarkup = <h1>当前值在1~10内：{count}</h1>
-  } else {
-    JSXMarkup = <h1>当前值大于10：{count}</h1>
+
+  const [todoList, setTodoList] = useState(['addd','kkkk'])
+
+  const [input, setInput] = useState('')
+
+  const handleAdd = () => {
+    setTodoList((prevList) => [input, ...prevList])
+    setInput('')
   }
+
+  useEffect(() => {
+    console.log('todoList: ', todoList)
+  }, [todoList])
+
   return (
-    <>
-      <button onClick={handleChange}>
-      {`当前值${count > 10 ? '大于 10' : '在 1 - 10 以内'}: ${count}`}
-      </button>
-      <Cart name="张三">
-        <h1>good</h1>
-      </Cart>
-    </>
+    <div className='wrapper'>
+      <div className='item'>
+        <input value={input}
+          onChange={(e) => setInput(e.target.value)}/>
+          <button onClick={handleAdd}>add</button>
+      </div>
+      {/* <ul className='item'>
+        
+        {todoList.map((value, index) => {
+           return (
+          <li key={index} className='li'>
+            {value}
+            <span
+              className='delete'
+              // onClick={handleDelete(i)}
+              onClick={() =>
+                setTodoList((todoList) => todoList.filter((_, index2) => index2 !== index))
+              }
+            >
+              x
+            </span>
+          
+          </li>
+           )
+        })}
+        
+      </ul> */}
+      <List
+        list={todoList}
+        setList={setTodoList}
+      />
+    </div>
   )
 
 

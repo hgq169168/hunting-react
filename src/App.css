@@ -49,3 +49,24 @@
 .avatar{
   border-radius: 50%;
 }
+.delete {
+  margin-left: auto;
+  cursor: pointer;
+  padding: 0 8px;
+}
+.li {
+  width: 300px;
+  display: flex;
+  border: 1px solid gray;
+  margin-top: 8px;
+}
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 300px;
+}
+.item {
+  width: 60%;
+  padding: 0;
+}
